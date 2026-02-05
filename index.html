@@ -1,0 +1,171 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validation Page</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration form</h1>
+    <form id="registerForm">
+        <label>Username:</label>
+        <input id="name" placeholder="enter name">
+        <span id="nameError" class="error"></span>
+        <br><br>
+        <label>Email:</label>
+        <input id="email" placeholder="enter email">
+        <span id="emailError" class="error"></span>
+        <br><br>
+        <label>Password:</label>
+        <input type="password" id="password">
+        <span id="passworderror" class="error"></span>
+        <br><br>
+        <button type="submit">submit</button>
+        <p id="result"></p>
+    </form>
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Fetch form values
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            //error messages
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let passwordError = document.getElementById("passwordError");
+            let result = document.getElementById("result");
+            //clear previous errors
+            nameError.innerText = "";
+            emailError.innerText = "";
+            passwordError.innerText = "";
+            result.innerText = "";
+            let valid = true;
+            // Validate name
+            if (name === "") {
+                nameError.innerText = "Name is required";
+                valid = false;
+            }
+            // Validate email
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                emailError.innerText = "Invalid email format";
+                valid = false;
+            }
+            // Validate password
+            if (password.length < 8) {
+                passwordError.innerText = "Password must be at least 8 characters long";
+                valid = false;
+            }
+            // result
+            if (valid) {
+                result.innerText = "Registration successful!";
+                result.className = "success";
+            } else {
+                result.innerText = "Please fix the errors above.";
+                result.className = "error";
+            }
+        });
+    </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validation Page</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Registration Form</h1>
+
+    <form id="registerForm">
+        <label>Username:</label>
+        <input id="name" placeholder="Enter name">
+        <span id="nameError" class="error"></span>
+        <br><br>
+
+        <label>Email:</label>
+        <input id="email" placeholder="Enter email">
+        <span id="emailError" class="error"></span>
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <span id="passwordError" class="error"></span>
+        <br><br>
+
+        <button type="submit">Submit</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let passwordError = document.getElementById("passwordError");
+            let result = document.getElementById("result");
+
+            nameError.innerText = "";
+            emailError.innerText = "";
+            passwordError.innerText = "";
+            result.innerText = "";
+
+            let valid = true;
+
+            if (name === "") {
+                nameError.innerText = "Name is required";
+                valid = false;
+            }
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                emailError.innerText = "Invalid email format";
+                valid = false;
+            }
+
+            if (password.length < 8) {
+                passwordError.innerText = "Password must be at least 8 characters";
+                valid = false;
+            }
+
+            if (valid) {
+                result.innerText = "Registration successful!";
+                result.className = "success";
+            } else {
+                result.innerText = "Please fix the errors above.";
+                result.className = "error";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
